@@ -1,14 +1,14 @@
-# Welcome to your CDK TypeScript project
 
-This is a blank project for CDK development with TypeScript.
+Overview
+Crypto Utility for Encrypting and Decrypting JSON Data
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+This project provides a utility for encrypting and decrypting JSON data using Node.js crypto module.
 
-## Useful commands
+Local Environment Setup
+Run npm install to install dependencies.
+Run npm run build to build the project.
+Make sure the terminal window has an active AWS session which can be got either using AWS CLI or copying and pasting the AWS environment variables.
+Run npx cdk deploy <user>-CryptographStack--require-approval never to deploy the stacks to your personal account.
+Replace <user> with your login username. On a MacBook it can be got by running echo $USER.
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+If you want to contribute, contributions to this project are welcome.

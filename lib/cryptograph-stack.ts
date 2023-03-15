@@ -12,9 +12,6 @@ export class CryptographStack extends cdk.Stack {
     const cryptoApi = new ApiGateway(this);
 
     //Lambda setup
-    const getCryptoLambda = new Lambda(this, "get-crypto")
-    cryptoApi.addIntegration("GET", "/get-crypto", getCryptoLambda)
-
     const postCryptoLambda = new Lambda(this, "post-crypto")
     cryptoApi.addIntegration("POST", "/post-crypto", postCryptoLambda)
 
