@@ -5,7 +5,7 @@ export const handler = async (event: APIGatewayEvent): Promise<APIGatewayProxyRe
 
     const request = JSON.parse(event.body!);
     if (request.method == 'encrypt') {
-        const result = common.encrypt(request.payload, request.key, request.ignoreList);
+        const result = common.encrypt(request.payload, request.key, request.ignoreList, request.encoding);
         const response = {
             statusCode: 200,
             headers: {"content-type": "application/json"},
@@ -15,7 +15,7 @@ export const handler = async (event: APIGatewayEvent): Promise<APIGatewayProxyRe
         return response
     }
     if (request.method == 'decrypt') {
-        const result = common.decrypt(request.payload, request.key, request.ignoreList);
+        const result = common.decrypt(request.payload, request.key, request.ignoreList, request.encoding);
         const response = {
             statusCode: 200,
             headers: {"content-type": "application/json"},

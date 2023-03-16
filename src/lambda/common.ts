@@ -22,25 +22,25 @@ function mapRec(element : any, fn : any, ignoreList: string[]): any {
     return (element || element === '') ? fn(element) : emptyFn(element);
 }
 
-export function encrypt(decryptedMessage: any, SVpublicKey: string, ignoreList: string[]): any {
+export function encrypt(decryptedMessage: any, SVpublicKey: string, ignoreList: string[], encoding: BufferEncoding): any {
     const encryptedMessage = mapRec(decryptedMessage,
         (item: string) =>
           crypto.publicEncrypt(
             { key: SVpublicKey, padding: crypto.constants.RSA_PKCS1_PADDING},
-            Buffer.from(item),
+            Buffer.from(item, encoding),
           ).toString('base64'),
         ignoreList,
       );
       return encryptedMessage;
 }
 
-export function decrypt(encryptedMessage: any, SVprivateKey: string, ignoreList: string[]): any {
+export function decrypt(encryptedMessage: any, SVprivateKey: string, ignoreList: string[], encoding: BufferEncoding ): any {
     const decryptedMessage = mapRec(encryptedMessage,
         (item: string) =>
             crypto.privateDecrypt(
             { key: SVprivateKey, padding: crypto.constants.RSA_PKCS1_PADDING},
             Buffer.from(item, 'base64'),
-            ).toString('utf-8'),
+            ).toString(encoding),
         ignoreList,
         );
         return decryptedMessage;
