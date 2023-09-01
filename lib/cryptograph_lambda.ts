@@ -8,7 +8,7 @@ export class Lambda extends NodejsFunction {
     constructor(scope: Construct, fileName: string) {
         super(scope, fileName, {
             architecture: Architecture.ARM_64,
-            runtime: Runtime.NODEJS_16_X,
+            runtime: Runtime.NODEJS_18_X,
             entry: path.join(__dirname, `../src/lambda/${fileName}.ts`),
             logRetention: RetentionDays.ONE_DAY
         })
